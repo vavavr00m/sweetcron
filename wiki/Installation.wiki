@@ -1,0 +1,21 @@
+#How to install Sweetcron in a few simple steps.
+
+= Download =
+
+Download the latest release of Sweetcron from the "Download" area:
+http://code.google.com/p/sweetcron/downloads/list
+
+= Requirements =
+
+  * A web server with at least PHP5 and MySQL4.1
+  * Some rss feeds of your activity across the web
+
+= Before You Start =
+
+Create a new database on your server.  If you are unsure of how to do this, please contact your hosting provider.  Remember the username and password you set for your database as you will need it in the next step.
+
+= Upload Sweetcron =
+
+Using FTP or a similar tool, upload Sweetcron to your web server.  This step-by-step guide assumes you want to install Sweetcron as your main site (in the root of your public folder).  If you would like to install Sweetcron in a subfolder instead, please see the notes after this guide.
+
+  #
