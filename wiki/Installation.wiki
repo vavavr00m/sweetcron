@@ -19,7 +19,7 @@ Create a new database on your server.  If you are unsure of how to do this, plea
 
 = Config =
 
-Using FTP or a similar tool, upload Sweetcron to your web server.  This step-by-step guide assumes you want to install Sweetcron as your main site (in the root of your public folder).  If you would like to install Sweetcron in a subfolder instead, please see the notes after this guide.
+Using FTP or a similar tool, copy the contents of the `sweetcron` folder to your web server.  This step-by-step guide assumes you want to install Sweetcron as your main site (in the root of your public folder).  If you would like to install Sweetcron in a subfolder instead, please see the notes after this guide.  *IMPORTANT: careful you don't miss the .htaccess file in the base of the folder*
 
   # In *system/application/config/* rename *config-sample.php* to *config.php*
   # Open *config.php* in a text editor and replace `http://www.your-site.com/` with your full site url, including trailing slash.
