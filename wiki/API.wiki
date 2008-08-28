@@ -8,14 +8,52 @@ When creating your theme templates, certain php variables will be made available
 
 These variables enable you to get information about Sweetcron configuration such as the title of the lifestream etc.
 
-== $this->config->item('base_url') ==
+=== $this->config->item('base_url') ===
 
 Returns the full url of Sweetcron's base url
 
-== $this->config->item('lifestream_title') ==
+=== $this->config->item('lifestream_title') ===
 
 Returns the title of the lifestream.
 
 = Page-Level Variables =
 
 These are variables that are available to individual theme pages.
+
+=== $page_name ===
+
+Returns the name of the current page (e.g. "Item Search" or "Items")
+
+=== $popular_tags ===
+
+An array of popular tags in your Sweetcron install.  Each tag object looks like this:
+
+{{{
+$tag->name //the human readable tag name
+$tag->slug //the lowercase, alphanumeric slug to be used in tag searches
+$tag->count //the total number of items with this tag
+}}}
+
+So you can use $popular_tags to create a lis of popular tags in your theme templates, like this:
+
+{{{
+<?php foreach ($popular_tags as $tag): ?>
+<?php echo $tag->name?>
+<?php endforeach; ?>
+}}}
+
+=== $tags ===
+
+The same as above, except this array contains all available tags in your Sweetcron install.
+
+=== $items ===
+
+An array of item objects for the current page, whether you are on the index page, an item search page, an item tag page etc etc.  See $item Object documentation below for full API reference.  Usage example:
+
+{{{
+<?php foreach ($items as $item): ?>
+<?php echo $item->get_title()?>
+<?php endforeach; ?>
+}}}
+
+= The $item Object =
