@@ -41,6 +41,64 @@ View `_activity_feed.php` for an example of the item loop.  For your site's inde
 === For the full API reference detailing what you can do with the $item objects and other variables that are available to theme files, please see the API page. ===
 http://code.google.com/p/sweetcron/wiki/API
 
+= Creating different styles for different types of items =
+
+Is very easy.  To understand this fully, you will need to read the API documentation:
+http://code.google.com/p/sweetcron/wiki/API
+
+Here's one basic method you could try.  Loop through your items like so:
+
+{{{
+<?php foreach ($items as $item): ?>
+<div class="<?php echo $item->get_feed_class()?>">
+
+<?php echo $item->get_title()?>
+
+</div>
+<?php endforeach; ?>
+}}}
+
+get_feed_class() will return the domain name of your item in a "css-safe" manner.  For example, youtube.com would become youtube_com.  Then it would simply be up to you to create styles associated with the websites you are pulling data from, e.g.
+
+{{{
+div.youtube_com {
+   background: red;
+}
+
+div.flickr_com {
+   background: blue;
+}
+}}}
+
+and so on.
+
+When you want to get more specific, you can start using conditional tags.  For example:
+
+{{{
+<?php foreach ($items as $item): ?>
+<div class="<?php echo $item->get_feed_class()?>">
+
+<?php echo $item->get_title()?>
+
+<?php if ($item->get_feed_domain() == 'youtube.com'): ?>
+Hey! this is from youtube!
+<?php echo $item->get_video()?>
+<?php endif; ?>
+
+<?php if ($item->get_feed_domain() == 'flickr.com'): ?>
+Hey! this is from flickr!
+<img src="<?php echo $item->image()?>" alt="" />
+<?php endif; ?>
+
+</div>
+<?php endforeach; ?>
+}}}
+
+See the `_activity_feed.php` file in the sandbox and boxy but good themes for more examples.
+But...most importantly...read the API!
+http://code.google.com/p/sweetcron/wiki/API
+
+
 = Theme FAQ =
 
 == Boxy But Good is showing my XYZ feed as white blog post boxes!!! OMG ==
