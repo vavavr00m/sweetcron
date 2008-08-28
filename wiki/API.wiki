@@ -108,7 +108,19 @@ Returns a url-safe version of the title (for use in SEO-style links if you like)
 === $item->get_data() ===
 Returns an array of original item data.  This array contains all of the original feed content before Sweetcron changed any of it.  So if you need to access the "pure" item data from the original rss feed, you can get it here.  Do a print_r() to see what's inside - it varies from item to item.
 
-== $item Object conditionals ==
+=== $item->get_video() ===
+Returns a video if Sweetcron found one in the item.
+
+=== $item->get_audio() ===
+Returns audio if Sweetcron found any.
+
+=== $item->get_image() ===
+Returns the url of an image if Sweetcron found one in the item.
+
+=== $item->get_tags() ===
+Returns an array of tags for the item.
+
+= $item Object conditionals =
 
 === $item->has_content() ===
 Returns true if the item has content.
@@ -125,7 +137,7 @@ Returns true if Sweetcron managed to find a video in the item.
 === $item->has_audio() ===
 Returns true if Sweetcron managed to find audio in the item.
 
-=== $item->has_image()
+=== $item->has_image() ===
 Returns true if Sweetcron managed to find an image in the item.
 
 === $item->has_tags() ===
