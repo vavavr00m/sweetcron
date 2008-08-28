@@ -21,6 +21,21 @@ Create a new database on your server.  If you are unsure of how to do this, plea
 
 Using FTP or a similar tool, copy the contents of the `sweetcron` folder to your web server.  This step-by-step guide assumes you want to install Sweetcron as your main site (in the root of your public folder).  If you would like to install Sweetcron in a subfolder instead, please see the notes after this guide.  *IMPORTANT: careful you don't miss the .htaccess file in the base of the folder*
 
+If you are unable to locate the .htaccess file (it should be sitting right next to index.php, but most operating systems hide this file type from view) then you will need to create it on your server manually.  It should look like this:
+
+{{{
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+}}}
+
+To configure Sweetcron
+
   # In *system/application/config/* rename *config-sample.php* to *config.php*
   # Open *config.php* in a text editor and replace `http://www.your-site.com/` with your full site url, including trailing slash.
   # In *system/application/config/* rename *database-sample.php* to *database.php*
