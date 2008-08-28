@@ -61,193 +61,75 @@ An array of item objects for the current page, whether you are on the index page
 Each $item object contains all available data about that particular item.  For example if it came from flickr, it might contain the url to a photo.  If it came from youtube, it might contain the embed code for a video.  It is your challenge as the theme developer to elegantly show the user what is available in this item, and you can do this with the following simple methods.
 
 === $item->get_feed_id() ===
-
 Returns the numeric feed id of the current item.
 
+=== $item->get_feed_title() ===
+Returns the title of the feed of the current item.
 
-	{
-		return $this->feed_id;	
-	}
+=== $item->get_feed_icon() ===
+Returns the url to the icon of the feed of the current item.
 
-	function get_feed_title()
-	{
-		return $this->feed_title;	
-	}
+=== $item->get_feed_url() ===
+Returns the url of the feed of the current item.
 
-	function get_feed_icon()
-	{
-		return $this->feed_icon;	
-	}
+=== $item->get_feed_data() ===
+Returns an array of misc feed data.
 
-	function get_feed_url()
-	{
-		return $this->feed_url;	
-	}
+=== $item->get_feed_domain() ===
+Returns the shorthand domain (e.g. `flick.com`) of the current item.
 
-	function get_feed_data()
-	{
-		return $this->feed_data;	
-	}
+=== $item->get_feed_class() ===
+Returns the shorthand domain suitable for use as a class (e.g. `flickr_com`) of the current item.
 
-	function get_feed_status()
-	{
-		return $this->feed_status;	
-	}
+=== $item->get_date() ===
+Returns the unix timestamp of the current item.
 
-	function get_feed_domain()
-	{
-		return $this->feed_domain;	
-	}
+=== $item->get_nice_date() ===
+Returns the relative date of the current item (e.g. `5 hours ago`).
 
-	function get_feed_class()
-	{
-		return $this->feed_class;	
-	}
+=== $item->get_human_date() ===
+Returns the relative date of the current item if being viewed within the same day, otherwise returns a date stamp.
 
-	//return item components
-	function get_date()
-	{
-		return $this->item_date;	
-	}
+=== $item->get_content() ===
+Returns the content of the item, pre formatted with html and any urls automatically turned into links.
 
-	function get_nice_date()
-	{
-		return $this->nice_date;	
-	}
+=== $item->get_title() ===
+Returns the title of the item.
 
-	function get_human_date()
-	{
-		return $this->human_date;	
-	}
+=== $item->get_permalink() ===
+Returns the link to the single item page on Sweetcron for this item.
 
-	function get_content()
-	{
-		return $this->item_content;	
-	}
-	
-	function get_title()
-	{
-		return $this->item_title;	
-	}
+=== $item->get_original_permalink() ===
+Returns the link to the origin of the item (i.e. link back to the original flickr photo)
 
-	function get_permalink()
-	{
-		return $this->item_permalink;	
-	}
+=== $item->get_name() ===
+Returns a url-safe version of the title (for use in SEO-style links if you like)
 
-	function get_original_permalink()
-	{
-		return $this->item_original_permalink;	
-	}
+=== $item->get_data() ===
+Returns an array of original item data.  This array contains all of the original feed content before Sweetcron changed any of it.  So if you need to access the "pure" item data from the original rss feed, you can get it here.  Do a print_r() to see what's inside - it varies from item to item.
 
-	function get_status()
-	{
-		return $this->item_status;	
-	}
+== $item Object conditionals ==
 
-	function get_name()
-	{
-		return $this->item_name;	
-	}
+=== $item->has_content() ===
+Returns true if the item has content.
 
-	function get_parent()
-	{
-		return $this->item_parent;	
-	}
+=== $item->has_permalink() ===
+Returns true if the item has a permalink.
 
-	function get_data()
-	{
-		return $this->item_data;	
-	}
-	
-	//"has" conditionals for item data
-	function has_content()
-	{
-		if (isset($this->item_content) && $this->item_content != '') {
-			return true;	
-		}
-	}
+=== $item->has_original_permalink() ===
+Returns true if the item has a link back to the original item.
 
-	function has_permalink()
-	{
-		if (isset($this->item_permalink)) {
-			return true;	
-		}
-	}
+=== $item->has_video() ===
+Returns true if Sweetcron managed to find a video in the item.
 
-	function has_original_permalink()
-	{
-		if (isset($this->item_original_permalink)) {
-			return true;	
-		}
-	}
+=== $item->has_audio() ===
+Returns true if Sweetcron managed to find audio in the item.
 
-	function has_video()
-	{
-		if (isset($this->item_data['video'])) {
-			return true;	
-		}
-	}
+=== $item->has_image()
+Returns true if Sweetcron managed to find an image in the item.
 
-	function has_audio()
-	{
-		if (isset($this->item_data['audio'])) {
-			return true;	
-		}
-	}
-	
-	function has_image()
-	{
-		if (isset($this->item_data['image']) && !empty($this->item_data['image'])) {
-			return true;	
-		}
-	}
+=== $item->has_tags() ===
+Returns true if the item has tags.
 
-	function has_tags()
-	{
-		if (isset($this->item_tags[0])) {
-			return true;	
-		}
-	}
-
-	function has_tag($query = NULL)
-	{
-		$query = strtolower($query);
-		if (isset($this->item_tags[0])) {
-			foreach ($this->item_tags as $tag) {
-				if ($tag->slug == $query) {
-					return true;	
-				}
-			}
-		}
-	}
-	
-	//get item data
-	function get_video()
-	{
-		if ($this->has_video()) {
-			return $this->item_data['video'];	
-		}
-	}
-
-	function get_audio()
-	{
-		if ($this->has_audio()) {
-			return $this->item_data['audio'];	
-		}
-	}
-
-	function get_image()
-	{
-		if ($this->has_image()) {
-			return $this->item_data['image'];	
-		}
-	}
-
-	function get_tags()
-	{
-		if ($this->has_tags()) {
-			return $this->item_tags;	
-		} else {
-			return array();	
-		}
+=== $item->has_tag('TAG') ===
+Returns true if the item has a specific tag.
