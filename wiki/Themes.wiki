@@ -34,7 +34,8 @@ View `_activity_feed.php` for an example of the item loop.  For your site's inde
 <!-- some html -->
 }}}
 
-For the full API reference detailing what you can do with the $item objects and other variables that are available to theme files, please see the API page.
+=== For the full API reference detailing what you can do with the $item objects and other variables that are available to theme files, please see the API page. ===
+http://code.google.com/p/sweetcron/wiki/API
 
 = Theme FAQ =
 
