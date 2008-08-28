@@ -1,4 +1,4 @@
-How to install Sweetcron in a few simple steps.
+#How to install Sweetcron in a few simple steps.
 
 = Download =
 
