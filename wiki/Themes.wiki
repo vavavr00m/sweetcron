@@ -1,5 +1,9 @@
 #summary How to create your own theme for Sweetcron
 
+= Where are the themes? =
+
+here -> `system/application/views/themes`
+
 = Copy the Sandbox Theme =
 
 The best method for creating a new theme is to make a duplicate of the `sandbox` folder inside `system/application/views/themes` and to rename the duplicate to your desired theme name.  Folder names cannot contain spaces.  Once you create a new folder in the themes folder, it becomes available as a selectable theme in the admin panel.  Use your new theme to edit and experiment with.
