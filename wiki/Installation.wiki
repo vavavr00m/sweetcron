@@ -17,7 +17,7 @@ For those who do not know what the above server requirements mean, do not worry.
 
 Create a new database on your server.  If you are unsure of how to do this, please contact your hosting provider.  Remember the username and password you set for your database as you will need it in the next step.
 
-= Config =
+= Config & .htaccess =
 
 Using FTP or a similar tool, copy the contents of the `sweetcron` folder to your web server.  This step-by-step guide assumes you want to install Sweetcron as your main site (in the root of your public folder).  If you would like to install Sweetcron in a subfolder instead, please see the notes after this guide.  *IMPORTANT: careful you don't miss the .htaccess file in the base of the folder*
 
