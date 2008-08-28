@@ -6,17 +6,19 @@ The best method for creating a new theme is to make a duplicate of the `sandbox`
 
 = Theme Contents =
 
-A theme should always contain these components:
+A theme folder should always contain these components:
 
-  * _activity_feed.php - the main activity list of your theme
-  * _header.php - the header of your site
-  * _footer.php - the footer of your site
-  * _sidebar.php - the sidebar of your site
-  * home.php - the index page of your site
-  * items.php - the item page of your site (search / tag results)
-  * single.php - the single item view page
-  * rss_feed.php - formatting for the rss feed
-  * main.css - the css for your site
+{{{
+_activity_feed.php //the main activity list of your theme 
+_header.php //the header of your site 
+_footer.php //the footer of your site 
+_sidebar.php //the sidebar of your site 
+home.php //the index page of your site
+items.php //the item page of your site (search / tag results)
+single.php //the single item view page
+rss_feed.php //formatting for the rss feed
+main.css //the css for your site
+}}}
 
 Sweetcron allows for a lot of customisation beyond this.  You can put any files you want into your theme folder and include them like you would using regular php / html in your theme templates.  For example, the sandbox theme also contains an images folder.
 
