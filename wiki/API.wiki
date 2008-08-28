@@ -2,11 +2,20 @@
 
 = Introduction =
 
-When creating your theme
+When creating your theme templates, certain php variables will be made available to you by Sweetcron.  This document tells you what those variables are.
 
-= Details =
+= Config-Level Variables =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+These variables enable you to get information about Sweetcron configuration such as the title of the lifestream etc.
+
+== $this->config->item('base_url') ==
+
+Returns the full url of Sweetcron's base url
+
+== $this->config->item('lifestream_title') ==
+
+Returns the title of the lifestream.
+
+= Page-Level Variables =
+
+These are variables that are available to individual theme pages.
