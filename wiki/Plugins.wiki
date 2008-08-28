@@ -1,0 +1,57 @@
+#summary A brief explanation of Sweetcron plugin architecture
+
+_This document is still pending completion!_
+
+= Introduction =
+
+Plugins are found in `system/application/plugins`
+
+Plugins improve how Sweetcron imports data from different websites.
+
+  * Problem: Sweetcron in its default state can only find thumbnail versions of photos I post to flickr.com
+  * Solution: Using plugin architecture, it would be possible to write a flickr plugin for Sweetcron that grabs the thumbnail's larger version and stores it in the $item object for use in theme templates.
+
+On its own, Sweetcron is pretty good at pulling out things like images and tags from items that it imports.  However if we want Sweetcron to be able to understand more complex data from the websites we interact with, we need to teach it how.
+
+*The challenge* is that all websites output their feeds in a siiiiightly different manner to each other.  So whilst - for example - youtube.com and vimeo.com both have videos in their feeds, they both put them _in_ their feeds in a slightly different way.
+
+= Two Hooks =
+
+We can manipulate feed data at two points.
+
+  # At import - before the item is put into the database.
+  # At display - before the item is rendered in a user's browser
+
+At import is suitable for making tweaks to data that we know we want to be permanent.  At display is suitable for simple, non-processor-intensive tweaks that make small changes to the available data.
+
+= Creating a plugin =
+
+Your plugin should be named after the web service is it being built for, using the domain name and replacing the period mark with an underscore.  E.g.
+
+  * youtube.com -> youtube_com.php
+  * flickr.com -> flickr_com.php
+
+Please see the plugins folder for more examples.  The classname should follow the filename.  E.g. youtube_com.php looks like this:
+
+{{{
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Youtube_com {
+	
+	//sample class for youtube
+	
+	function pre_db($item)
+	{
+		return $item;
+	}
+	
+	function pre_display($item)
+	{
+		return $item;
+	}
+
+}
+?>
+}}}
+
+==DOCUMENTATION PENDING COMPLETION==
