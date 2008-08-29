@@ -81,6 +81,9 @@ Returns the shorthand domain (e.g. `flick.com`) of the current item.
 === $item->get_feed_class() ===
 Returns the shorthand domain suitable for use as a class (e.g. `flickr_com`) of the current item.
 
+=== $item->get_id() ===
+Returns the numeric ID of the item.
+
 === $item->get_date() ===
 Returns the unix timestamp of the current item.
 
@@ -145,3 +148,6 @@ Returns true if the item has tags.
 
 === $item->has_tag('TAG') ===
 Returns true if the item has a specific tag.
+
+=== $item->has_data('key') ===
+Returns true if the item has a specific piece of custom data.
