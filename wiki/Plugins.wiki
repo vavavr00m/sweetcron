@@ -58,7 +58,7 @@ Sweetcron will detect if a plugin exists or not for a feed that a user is trying
 
 = Plugin Functions =
 
-You can manipulate item data at two points in an item's "lifetime" by using the pre_db() and pre_display() functions in your plugin.  In both cases, an item object is passed to the function by sweetcron.
+You can manipulate item data at two points in an item's "lifetime" by using the pre_db() and pre_display() functions in your plugin.  In both cases, an item object is passed to the function by sweetcron.  Remember to return the item object back to Sweetcron after you're finished with it!
 
 == When to use pre_db() ==
 
