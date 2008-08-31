@@ -97,6 +97,9 @@ Available item attributes are:
 
 {{{
 $item->item_status //status of item.  "publish" by default, but you can set to "draft"
+//IMPORTANT - only manipulate this at the pre_db stage if you're going to use it.
+//changing the status on pre_display, in the words of Egon Spengler, would be bad.
+
 $item->item_date  //date of the item in unix timestamp
 $item->item_title //title of the item
 $item->item_permalink //permalink back to the origin of the item
