@@ -131,6 +131,12 @@ function pre_db($item)
    return $item;
 }}}
 
+You can store completely custom data by simply adding to the item_data array.
+
+{{{
+$item->item_data['foo'] = 'bar';
+}}}
+
 = Media Types =
 
 Sweetcron's theme API has three functions for getting media:
