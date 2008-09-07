@@ -98,30 +98,4 @@ See the `_activity_feed.php` file in the sandbox and boxy but good themes for mo
 But...most importantly...read the API!
 http://code.google.com/p/sweetcron/wiki/API
 
-
-= Theme FAQ =
-
-== Boxy But Good is showing my XYZ feed as white blog post boxes!!! OMG ==
-
-The Boxy But Good theme comes with only 5 preset "styles" for boxes.  Any item that Boxy But Good doesn't know how to display, it will use a default "white" style.  So you can edit the theme to create more styles if you like...but personally I think the best way to start is from Sandbox...
-
-== Boxy But Good is showing something I don't want to be a photo, as a photo!!1 OMG ==
-
-Read the theme API and learn how to control the theme to display whatever you want, based on simple commands like has_video(), has_image() etc.  By using this API you could do something like this:
-
-if the item comes from twitter...
-show a title and a link
-
-if the item comes from flickr...
-show the image
-
-if the item comes from OMGOMGOMGOMGOMG.com...
-make the background pink and add <blink> tags to the title :D :D :D
-
-if the item comes from youtube...
-show an image, then when clicked show the video in a popup
-
-if the item has both an image and a video...
-show both!
-
 The possibilities are endless once you learn how to control the API :)
