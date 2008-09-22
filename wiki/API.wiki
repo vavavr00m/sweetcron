@@ -27,7 +27,18 @@ $items = $this->sweetcron->query_items('site', 'youtube.com', 0, 10);
 
 $items will then hold an array of the last 10 items Sweetcron has grabbed from youtube.com
 
-You can loop through this array with a foreach loop, and each item will be a Sweetcron item object (API for Sweetcron item objects is explained below).
+You can loop through this array with a foreach loop, and each item will be a Sweetcron item object.  Example:
+
+{{{
+<?php $items = $this->sweetcron->query_items('site', 'youtube.com', 0, 10);
+foreach ($items as $item): ?>
+<a href="<?php echo $item->get_permalink()?>"><?php echo $item->get_image();?></a>
+<?php endforeach; ?>
+}}}
+
+Would display the last 10 youtube videos in Sweetcron as thumbnail links.
+
+Full API for Sweetcron item objects is explained further down this page.
 
 = Config-Level Variables =
 
